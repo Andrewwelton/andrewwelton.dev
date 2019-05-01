@@ -79,17 +79,18 @@ view : Model -> Browser.Document Msg
 view model =
   { title = "URL Interceptor"
   , body =
-      [ text "The current URL is: "
-      , b [] [ text (Url.toString model.url) ]
-      , sideBar "Ayy"
-      , ul []
-          [ viewLink "/home"
-          , viewLink "/profile"
-          , viewLink "/reviews/the-century-of-the-self"
-          , viewLink "/reviews/public-opinion"
-          , viewLink "/reviews/shah-of-shahs"
-          ]
-      ]
+      [ section [ class "section" ] [sideBar ""]]
+      -- [ text "The current URL is: "
+      -- , b [] [ text (Url.toString model.url) ]
+      -- , sideBar "Ayy"
+      -- , ul []
+      --     [ viewLink "/home"
+      --     , viewLink "/profile"
+      --     , viewLink "/reviews/the-century-of-the-self"
+      --     , viewLink "/reviews/public-opinion"
+      --     , viewLink "/reviews/shah-of-shahs"
+      --     ]
+      -- ]
   }
 
 

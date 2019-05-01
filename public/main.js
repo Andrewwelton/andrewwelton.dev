@@ -5262,49 +5262,20 @@ var author$project$Main$sideBar = function (_n0) {
 					]))
 			]));
 };
-var author$project$Main$viewLink = function (path) {
-	return A2(
-		elm$html$Html$li,
-		_List_Nil,
-		_List_fromArray(
-			[
-				A2(
-				elm$html$Html$a,
-				_List_fromArray(
-					[
-						elm$html$Html$Attributes$href(path)
-					]),
-				_List_fromArray(
-					[
-						elm$html$Html$text(path)
-					]))
-			]));
-};
-var elm$html$Html$b = _VirtualDom_node('b');
+var elm$html$Html$section = _VirtualDom_node('section');
 var author$project$Main$view = function (model) {
 	return {
 		body: _List_fromArray(
 			[
-				elm$html$Html$text('The current URL is: '),
 				A2(
-				elm$html$Html$b,
-				_List_Nil,
+				elm$html$Html$section,
 				_List_fromArray(
 					[
-						elm$html$Html$text(
-						elm$url$Url$toString(model.url))
-					])),
-				author$project$Main$sideBar('Ayy'),
-				A2(
-				elm$html$Html$ul,
-				_List_Nil,
+						elm$html$Html$Attributes$class('section')
+					]),
 				_List_fromArray(
 					[
-						author$project$Main$viewLink('/home'),
-						author$project$Main$viewLink('/profile'),
-						author$project$Main$viewLink('/reviews/the-century-of-the-self'),
-						author$project$Main$viewLink('/reviews/public-opinion'),
-						author$project$Main$viewLink('/reviews/shah-of-shahs')
+						author$project$Main$sideBar('')
 					]))
 			]),
 		title: 'URL Interceptor'
