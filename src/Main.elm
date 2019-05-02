@@ -1,3 +1,5 @@
+module Main exposing (Model, Msg(..), init, main, sideBar, subscriptions, update, view, viewLink)
+
 import Browser
 import Browser.Navigation as Nav
 import Html exposing (..)
@@ -11,14 +13,14 @@ import Url
 
 main : Program () Model Msg
 main =
-  Browser.application
-    { init = init
-    , view = view
-    , update = update
-    , subscriptions = subscriptions
-    , onUrlChange = UrlChanged
-    , onUrlRequest = LinkClicked
-    }
+    Browser.application
+        { init = init
+        , view = view
+        , update = update
+        , subscriptions = subscriptions
+        , onUrlChange = UrlChanged
+        , onUrlRequest = LinkClicked
+        }
 
 
 
@@ -26,14 +28,14 @@ main =
 
 
 type alias Model =
-  { key : Nav.Key
-  , url : Url.Url
-  }
+    { key : Nav.Key
+    , url : Url.Url
+    }
 
 
 init : () -> Url.Url -> Nav.Key -> ( Model, Cmd Msg )
 init flags url key =
-  ( Model key url, Cmd.none )
+    ( Model key url, Cmd.none )
 
 
 
@@ -41,25 +43,25 @@ init flags url key =
 
 
 type Msg
-  = LinkClicked Browser.UrlRequest
-  | UrlChanged Url.Url
+    = LinkClicked Browser.UrlRequest
+    | UrlChanged Url.Url
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
-  case msg of
-    LinkClicked urlRequest ->
-      case urlRequest of
-        Browser.Internal url ->
-          ( model, Nav.pushUrl model.key (Url.toString url) )
+    case msg of
+        LinkClicked urlRequest ->
+            case urlRequest of
+                Browser.Internal url ->
+                    ( model, Nav.pushUrl model.key (Url.toString url) )
 
-        Browser.External href ->
-          ( model, Nav.load href )
+                Browser.External href ->
+                    ( model, Nav.load href )
 
-    UrlChanged url ->
-      ( { model | url = url }
-      , Cmd.none
-      )
+        UrlChanged url ->
+            ( { model | url = url }
+            , Cmd.none
+            )
 
 
 
@@ -68,7 +70,7 @@ update msg model =
 
 subscriptions : Model -> Sub Msg
 subscriptions _ =
-  Sub.none
+    Sub.none
 
 
 
@@ -77,32 +79,50 @@ subscriptions _ =
 
 view : Model -> Browser.Document Msg
 view model =
-  { title = "URL Interceptor"
-  , body =
-      [ section [ class "section" ] [sideBar ""]]
-      -- [ text "The current URL is: "
-      -- , b [] [ text (Url.toString model.url) ]
-      -- , sideBar "Ayy"
-      -- , ul []
-      --     [ viewLink "/home"
-      --     , viewLink "/profile"
-      --     , viewLink "/reviews/the-century-of-the-self"
-      --     , viewLink "/reviews/public-opinion"
-      --     , viewLink "/reviews/shah-of-shahs"
-      --     ]
-      -- ]
-  }
+    { title = "andrewwelton.dev"
+    , body =
+        [ section [ class "section" ]
+            [ div [ class "container" ]
+                [ div [ class "columns" ]
+                    [ div [ class "column is-one-quarter" ]
+                        [ sideBar [] ]
+                    , div [ class "column" ]
+                        [ case model.url.path of
+                            "/" ->
+                                home []
+
+                            "/index.html" ->
+                                home []
+
+                            _ ->
+                                text (String.append "How did you get here " model.url.path)
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    }
 
 
-sideBar : String -> Html msg
-sideBar _ = 
-  aside [class "menu"]
-    [ p [ class "menu-label" ] [ text "Test" ],
-      ul [ class  "menu-list" ] [
-        li [] [ a [href "/home"] [ text "Home" ]]
-      ]
-    ] 
+home : List String -> Html msg
+home _ =
+    div []
+        [ h1 [ class "title" ] [ text "Andrew Welton" ]
+        , h2 [ class "subtitle" ] [ text "Software Developer" ]
+        ]
+
+
+sideBar : List String -> Html msg
+sideBar _ =
+    aside [ class "menu" ]
+        [ p [ class "menu-label" ] [ text "andrewwelton.dev" ]
+        , ul [ class "menu-list" ]
+            [ li [] [ a [ href "/" ] [ text "Home" ] ]
+            , li [] [ a [ href "/work" ] [ text "Work" ] ]
+            ]
+        ]
+
 
 viewLink : String -> Html msg
 viewLink path =
-  li [] [ a [ href path ] [ text path ] ]
+    li [] [ a [ href path ] [ text path ] ]

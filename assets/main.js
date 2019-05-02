@@ -5194,13 +5194,11 @@ var author$project$Main$update = F2(
 				elm$core$Platform$Cmd$none);
 		}
 	});
-var elm$html$Html$a = _VirtualDom_node('a');
-var elm$html$Html$aside = _VirtualDom_node('aside');
-var elm$html$Html$li = _VirtualDom_node('li');
-var elm$html$Html$p = _VirtualDom_node('p');
+var elm$html$Html$div = _VirtualDom_node('div');
+var elm$html$Html$h1 = _VirtualDom_node('h1');
+var elm$html$Html$h2 = _VirtualDom_node('h2');
 var elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
 var elm$html$Html$text = elm$virtual_dom$VirtualDom$text;
-var elm$html$Html$ul = _VirtualDom_node('ul');
 var elm$json$Json$Encode$string = _Json_wrap;
 var elm$html$Html$Attributes$stringProperty = F2(
 	function (key, string) {
@@ -5210,6 +5208,39 @@ var elm$html$Html$Attributes$stringProperty = F2(
 			elm$json$Json$Encode$string(string));
 	});
 var elm$html$Html$Attributes$class = elm$html$Html$Attributes$stringProperty('className');
+var author$project$Main$home = function (_n0) {
+	return A2(
+		elm$html$Html$div,
+		_List_Nil,
+		_List_fromArray(
+			[
+				A2(
+				elm$html$Html$h1,
+				_List_fromArray(
+					[
+						elm$html$Html$Attributes$class('title')
+					]),
+				_List_fromArray(
+					[
+						elm$html$Html$text('Andrew Welton')
+					])),
+				A2(
+				elm$html$Html$h2,
+				_List_fromArray(
+					[
+						elm$html$Html$Attributes$class('subtitle')
+					]),
+				_List_fromArray(
+					[
+						elm$html$Html$text('Software Developer')
+					]))
+			]));
+};
+var elm$html$Html$a = _VirtualDom_node('a');
+var elm$html$Html$aside = _VirtualDom_node('aside');
+var elm$html$Html$li = _VirtualDom_node('li');
+var elm$html$Html$p = _VirtualDom_node('p');
+var elm$html$Html$ul = _VirtualDom_node('ul');
 var elm$html$Html$Attributes$href = function (url) {
 	return A2(
 		elm$html$Html$Attributes$stringProperty,
@@ -5233,7 +5264,7 @@ var author$project$Main$sideBar = function (_n0) {
 					]),
 				_List_fromArray(
 					[
-						elm$html$Html$text('Test')
+						elm$html$Html$text('andrewwelton.dev')
 					])),
 				A2(
 				elm$html$Html$ul,
@@ -5252,16 +5283,33 @@ var author$project$Main$sideBar = function (_n0) {
 								elm$html$Html$a,
 								_List_fromArray(
 									[
-										elm$html$Html$Attributes$href('/home')
+										elm$html$Html$Attributes$href('/')
 									]),
 								_List_fromArray(
 									[
 										elm$html$Html$text('Home')
 									]))
+							])),
+						A2(
+						elm$html$Html$li,
+						_List_Nil,
+						_List_fromArray(
+							[
+								A2(
+								elm$html$Html$a,
+								_List_fromArray(
+									[
+										elm$html$Html$Attributes$href('/work')
+									]),
+								_List_fromArray(
+									[
+										elm$html$Html$text('Work')
+									]))
 							]))
 					]))
 			]));
 };
+var elm$core$String$append = _String_append;
 var elm$html$Html$section = _VirtualDom_node('section');
 var author$project$Main$view = function (model) {
 	return {
@@ -5275,10 +5323,58 @@ var author$project$Main$view = function (model) {
 					]),
 				_List_fromArray(
 					[
-						author$project$Main$sideBar('')
+						A2(
+						elm$html$Html$div,
+						_List_fromArray(
+							[
+								elm$html$Html$Attributes$class('container')
+							]),
+						_List_fromArray(
+							[
+								A2(
+								elm$html$Html$div,
+								_List_fromArray(
+									[
+										elm$html$Html$Attributes$class('columns')
+									]),
+								_List_fromArray(
+									[
+										A2(
+										elm$html$Html$div,
+										_List_fromArray(
+											[
+												elm$html$Html$Attributes$class('column is-one-quarter')
+											]),
+										_List_fromArray(
+											[
+												author$project$Main$sideBar(_List_Nil)
+											])),
+										A2(
+										elm$html$Html$div,
+										_List_fromArray(
+											[
+												elm$html$Html$Attributes$class('column')
+											]),
+										_List_fromArray(
+											[
+												function () {
+												var _n0 = model.url.path;
+												switch (_n0) {
+													case '/':
+														return author$project$Main$home(_List_Nil);
+													case '/index.html':
+														return author$project$Main$home(_List_Nil);
+													default:
+														return elm$html$Html$text(
+															A2(elm$core$String$append, 'How did you get here ', model.url.path));
+												}
+											}()
+											]))
+									]))
+							]))
 					]))
 			]),
-		title: 'URL Interceptor'
+		title: 'andrewwelton.dev'
 	};
 };
 var elm$browser$Browser$application = _Browser_application;
