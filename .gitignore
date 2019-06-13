@@ -1,2 +1,6 @@
-# ignore elm generated things
-elm-stuff/
+.DS_Store
+Thumbs.db
+*.log
+node_modules
+coverage
+.cache
