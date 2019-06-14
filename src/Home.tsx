@@ -5,8 +5,9 @@ export default class HomeComponent extends Component {
 
   view = state => {
     return (
-      <div>
-        <h1>{state}</h1>
+      <div class="content">
+        <h1 class="title">Andrew Welton</h1>
+        <h2 class="subtitle">Software Developer</h2>
       </div>
     );
   };
