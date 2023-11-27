@@ -17,6 +17,17 @@ jobs:
       - run:
           name: "Say hello"
           command: "echo Hello, World!"
+  enter-the-matrix:
+    docker:
+      - image: cimg/base:stable
+    parameters:
+      var1:
+        type: string
+    steps:
+      - checkout
+      - run:
+          name: "Matrix!"
+          command: "echo <<parameters.var1>>"
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
@@ -24,92 +35,7 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
-      - say-hello
+      - enter-the-matrix:
+          matrix:
+            parameters:
+              var1: ["a", "b", "c", "d", "e", "f"]
