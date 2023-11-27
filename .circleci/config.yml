@@ -17,7 +17,7 @@ jobs:
       - run:
           name: "Say hello"
           command: "echo Hello, World!"
-  enter-the-matrix:
+  enter-the-matrix-because-it-was-a-good-game-to-be-honest:
     docker:
       - image: cimg/base:stable
     parameters:
@@ -28,7 +28,7 @@ jobs:
       - run:
           name: "Matrix!"
           command: "echo <<parameters.var1>>"
-  enter-the-matrix-two:
+  enter-the-matrix-two-because-it-was-a-good-game-to-be-honest:
     docker:
       - image: cimg/base:stable
     parameters:
@@ -46,11 +46,11 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
-      - enter-the-matrix:
+      - enter-the-matrix-because-it-was-a-good-game-to-be-honest:
           matrix:
             parameters:
               var1: ["OZs7C", "v3GNb", "D0tPQ", "hUzRx", "2MdpN", "cT6Gk", "1LHyb", "eXQj9", "p3Am5", "lRtsO", "5GY8f", "I9c6S", "xJi4H", "T0qkw", "RjDLz", "M9fJx", "EVY0e", "8sWZQ", "rPjY7", "tCwya", "UBZRf", "dq68z", "s1fOe", "nSHcL", "FayR6", "vSNfD", "4Jl3c", "h9iXO", "BgpMY", "Gd8KF", "T3iHb", "jA9Vx", "Lkut7", "p0IbC", "oGcXt", "6HLEw", "ubOrk", "2dQ1v", "zRoth", "x9wjT", "v5EhS", "fYZGd", "U1pRN", "y0MlG", "8bLPD", "10dlh", "OIE5G", "nSj3R", "CzFKc", "JUxtP", "4jWZk", "78LKT", "NsqOG", "2kMIV", "Lu1hS", "zc8HK", "1eMZo", "gQNwL", "jDnt9", "4wiFk", "InYRx", "Zy0DW", "9uUBi", "Nvzrs", "DObmL", "t6JSh", "cMXT5", "E1j2C", "vWb9M", "goRQF", "hJvSA", "KP7ug", "3cy6X", "2sr0L", "GQ36M", "9d1Nf", "pk2jx", "wP4Qm", "UabE8", "4HiLk", "vRFAo", "TsQZ2", "qeMR0", "iSKEv", "A6ehr", "BL1J9", "8tmx3", "Pz9LI", "tqCop", "Efj7y", "U926g", "5j4nS", "SbIwg", "h8Os6", "7VFGu", "mOpGc", "w36YJ", "lrhI4", "EZD9a", "5WYxM", "1qWhz", "QUz0I", "gtoAE", "G9Tfn", "MJXO6", "sVuTw", "8oJhs", "vzGZa", "4OylV", "Db86f", "QRY3n", "kC1Fp", "KDL2W", "9szvo", "mSEyL"]
-      - enter-the-matrix-two:
+      - enter-the-matrix-two-because-it-was-a-good-game-to-be-honest:
           matrix:
             parameters:
               var1: ["OZs7C", "v3GNb", "D0tPQ", "hUzRx", "2MdpN", "cT6Gk", "1LHyb", "eXQj9", "p3Am5", "lRtsO", "5GY8f", "I9c6S", "xJi4H", "T0qkw", "RjDLz", "M9fJx", "EVY0e", "8sWZQ", "rPjY7", "tCwya", "UBZRf", "dq68z", "s1fOe", "nSHcL", "FayR6", "vSNfD", "4Jl3c", "h9iXO", "BgpMY", "Gd8KF", "T3iHb", "jA9Vx", "Lkut7", "p0IbC", "oGcXt", "6HLEw", "ubOrk", "2dQ1v", "zRoth", "x9wjT", "v5EhS", "fYZGd", "U1pRN", "y0MlG", "8bLPD", "10dlh", "OIE5G", "nSj3R", "CzFKc", "JUxtP", "4jWZk", "78LKT", "NsqOG", "2kMIV", "Lu1hS", "zc8HK", "1eMZo", "gQNwL", "jDnt9", "4wiFk", "InYRx", "Zy0DW", "9uUBi", "Nvzrs", "DObmL", "t6JSh", "cMXT5", "E1j2C", "vWb9M", "goRQF", "hJvSA", "KP7ug", "3cy6X", "2sr0L", "GQ36M", "9d1Nf", "pk2jx", "wP4Qm", "UabE8", "4HiLk", "vRFAo", "TsQZ2", "qeMR0", "iSKEv", "A6ehr", "BL1J9", "8tmx3", "Pz9LI", "tqCop", "Efj7y", "U926g", "5j4nS", "SbIwg", "h8Os6", "7VFGu", "mOpGc", "w36YJ", "lrhI4", "EZD9a", "5WYxM", "1qWhz", "QUz0I", "gtoAE", "G9Tfn", "MJXO6", "sVuTw", "8oJhs", "vzGZa", "4OylV", "Db86f", "QRY3n", "kC1Fp", "KDL2W", "9szvo", "mSEyL"]
